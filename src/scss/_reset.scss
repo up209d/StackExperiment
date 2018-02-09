@@ -1,0 +1,148 @@
+/* Global Style Reset Here */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  //    border-radius: 4px;
+  background: rgba(0,0,0,0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  //    border-radius: 4px;
+  background: rgba(0,0,0,0.6);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0,0,0,0.2);
+}
+
+html {
+  @include onlyIfIE() {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+
+}
+
+html,body {
+  min-height: 800px;
+}
+
+html > body {
+  background: url("~ASSETS_DIR/images/bg.jpg");
+  background-attachment: fixed;
+  background-position: 50%;
+  background-size: cover;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: rem-calc(16px);
+  font-weight: 300;
+  letter-spacing: rem-calc(0.15px);
+  color: $gray;
+
+  // For in-element scroll
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    //    border-radius: 4px;
+    background: rgba(0,0,0,0.2);
+  }
+}
+
+h1,h2 {
+  font-weight: 300;
+  letter-spacing: rem-calc(1.5px);
+}
+
+h3,h4,h5,h6 {
+  font-weight: 400;
+  letter-spacing: rem-calc(0.5px);
+  line-height: 1.25em;
+}
+
+h1 {
+  font-size: rem-calc(45px);
+}
+
+h2 {
+  font-size: rem-calc(36px);
+}
+
+h3 {
+  font-size: rem-calc(24px);
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  color: $blue;
+  transition: color .3s ease-out;
+  &:hover {
+    color: $bunting;
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  font-weight: 300;
+}
+
+
+// Bootstrap Print .scss First Letter Problem
+// Overwrite here
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+  z-index:9;
+  position: fixed;
+  top:0px;
+  width:100%;
+}
+
+#root {
+  margin: 15px auto;
+  background: #fff;
+  box-shadow: 0 0 30px 30px rgba(0,0,0,.18);
+  max-width: 1180px !important;
+  width:96%;
+  min-width: 320px !important;
+  min-height: 800px;
+  padding: 45px;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+    margin:0;
+    padding: 15px;
+  }
+}
+
+@media print {
+  //::first-letter{
+  //  margin: 0 !important;
+  //  padding: 0 !important;;
+  //}
+
+  .print-break-page {
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
+}

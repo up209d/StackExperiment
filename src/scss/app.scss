@@ -1,0 +1,17 @@
+// ------ GLOBAL CSS ------- //
+
+// Import bootstrap -
+// Note: custom.scss is also imported in bootstrap, see _bootstrap.scss
+@import 'bootstrap';
+
+// Import globals
+@import 'utils';
+@import 'reset';
+
+// Components
+@import 'components/typography';
+
+// Layouts
+
+
+// Pages
